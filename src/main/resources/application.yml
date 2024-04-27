@@ -1,0 +1,13 @@
+spring:
+  liquibase:
+    enabled: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/tehnovsky_test
+  jpa:
+    hibernate:
+      ddl-auto: none
+  application:
+    name: task

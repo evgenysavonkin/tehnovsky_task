@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-document
+      author: Evgeny
+      changes:
+        - createTable:
+            tableName: document
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: document_number
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: document_type
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_document_user
+                    nullable: false
+                    referencedTableName: user_
+                    referencedColumnNames: id
+                    deleteCascade: true

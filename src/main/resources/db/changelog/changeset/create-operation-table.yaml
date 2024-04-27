@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-operation
+      author: Evgeny
+      changes:
+        - createTable:
+            tableName: operation
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: operation_type
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: currency
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: operation_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_operation_user
+                    nullable: false
+                    referencedTableName: user_
+                    referencedColumnNames: id
+                    deleteCascade: true
