@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import static com.tehnovsky.task.util.ValuesChecker.*;
+
 public class OperationBuilder {
 
     private OperationBuilder() {
@@ -16,6 +18,10 @@ public class OperationBuilder {
     }
 
     public static Operation buildOperation(User user, BigDecimal amountOfMoney, Currency currency, boolean isDeposit) {
+        checkUserNotNull(user);
+        checkAmountOfMoney(amountOfMoney);
+        checkCurrencyNotNull(currency);
+
         Operation operation = Operation.builder()
                 .amount(amountOfMoney)
                 .currency(currency)

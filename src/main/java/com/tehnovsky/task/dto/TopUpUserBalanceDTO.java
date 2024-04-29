@@ -1,10 +1,7 @@
 package com.tehnovsky.task.dto;
 
 import com.tehnovsky.task.util.enums.Currency;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -12,6 +9,7 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class TopUpUserBalanceDTO {
     private long userId;
     private BigDecimal amountOfMoney;

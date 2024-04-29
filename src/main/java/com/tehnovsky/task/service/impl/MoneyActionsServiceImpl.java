@@ -15,7 +15,10 @@ import com.tehnovsky.task.util.enums.ExceptionTemplates;
 import com.tehnovsky.task.util.exceptions.InvalidAccountCurrency;
 import com.tehnovsky.task.util.exceptions.NotEnoughMoneyException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
@@ -24,6 +27,7 @@ import static com.tehnovsky.task.util.ValuesChecker.checkTopUpUserBalanceDTO;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class MoneyActionsServiceImpl implements MoneyActionsService {
 
     private final UserService userService;
@@ -32,6 +36,7 @@ public class MoneyActionsServiceImpl implements MoneyActionsService {
 
     @Override
     public void topUpUserBalance(TopUpUserBalanceDTO balanceDTO) {
+        log.info("MoneyActionsServiceImpl topUpUserBalance start");
         checkTopUpUserBalanceDTO(balanceDTO);
         Currency currency = balanceDTO.getCurrency();
         BigDecimal amountOfMoney = balanceDTO.getAmountOfMoney();
@@ -43,10 +48,13 @@ public class MoneyActionsServiceImpl implements MoneyActionsService {
 
         updateUserAccountBalance(userAccount, amountOfMoney, true);
         addOperationToUser(user, amountOfMoney, currency, true);
+        log.info("MoneyActionsServiceImpl topUpUserBalance end");
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void sendMoneyToAnotherUser(SendingMoneyToUserDTO moneyToUserDTO) {
+        log.info("MoneyActionsServiceImpl sendMoneyToAnotherUser start");
         checkSendingMoneyToUserDTO(moneyToUserDTO);
         BigDecimal amountOfMoney = moneyToUserDTO.getAmount();
         User sender = userService.findById(moneyToUserDTO.getSenderUserId());
@@ -58,6 +66,7 @@ public class MoneyActionsServiceImpl implements MoneyActionsService {
         updateUserAccountBalance(receiverAccount, amountOfMoney, true);
         addOperationToUser(sender, amountOfMoney, currency, false);
         addOperationToUser(sender, amountOfMoney, currency, true);
+        log.info("MoneyActionsServiceImpl sendMoneyToAnotherUser end");
     }
 
     private void addOperationToUser(User user, BigDecimal amountOfMoney, Currency currency, boolean isDeposit) {

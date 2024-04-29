@@ -1,10 +1,7 @@
 package com.tehnovsky.task.dto;
 
 import com.tehnovsky.task.util.enums.Currency;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 
@@ -12,6 +9,7 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class SendingMoneyToUserDTO {
     private long senderUserId;
     private Currency senderCurrency;
