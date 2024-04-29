@@ -25,4 +25,13 @@ public class Document {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
     private User user;
+
+    @Override
+    public String toString() {
+        return "Document{" +
+                "id=" + id +
+                ", uniqueDocumentNumber='" + uniqueDocumentNumber + '\'' +
+                ", documentType=" + documentType +
+                '}';
+    }
 }

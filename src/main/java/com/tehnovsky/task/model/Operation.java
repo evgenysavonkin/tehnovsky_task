@@ -38,4 +38,15 @@ public class Operation {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @JsonIgnore
     private User user;
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id=" + id +
+                ", operationType=" + operationType +
+                ", amount=" + amount +
+                ", currency=" + currency +
+                ", operationDate=" + operationDate +
+                '}';
+    }
 }

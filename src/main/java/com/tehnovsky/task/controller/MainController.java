@@ -23,14 +23,14 @@ public class MainController {
     }
 
     @PostMapping("/top_up_balance")
-    public ResponseEntity<String> topUpUserBalance(@RequestBody TopUpUserBalanceDTO userBalanceDTO) {
+    public ResponseEntity<?> topUpUserBalance(@RequestBody TopUpUserBalanceDTO userBalanceDTO) {
         moneyActionsService.topUpUserBalance(userBalanceDTO);
-        return ResponseEntity.ok().body("Success");
+        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/send_money")
-    public ResponseEntity<String> sendMoneyToAnotherUser(@RequestBody SendingMoneyToUserDTO moneyToUserDTO) {
+    public ResponseEntity<?> sendMoneyToAnotherUser(@RequestBody SendingMoneyToUserDTO moneyToUserDTO) {
         moneyActionsService.sendMoneyToAnotherUser(moneyToUserDTO);
-        return ResponseEntity.ok().body("Success");
+        return ResponseEntity.ok().build();
     }
 }
