@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-user-data
+      author: Evgeny
+      changes:
+        - sql:
+            splitStatements: true
+            stripComments: true
+            sql: "INSERT INTO user_ (username) VALUES ('Bob'), ('Tom'), ('Kate');"
+

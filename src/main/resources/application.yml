@@ -7,7 +7,7 @@ spring:
     username: postgres
     password: postgres
     #    url: jdbc:postgresql://localhost:5432/tehnovsky_task
-    url: jdbc:postgresql://postgres:15432/tehnovsky_task
+    url: jdbc:postgresql://postgres:5432/tehnovsky_task
 
   jpa:
     hibernate:

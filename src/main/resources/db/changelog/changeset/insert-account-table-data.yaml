@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-account-data
+      author: Evgeny
+      changes:
+        - sql:
+            splitStatements: true
+            stripComments: true
+            sql: "INSERT INTO account (balance, currency, user_id)
+                  VALUES (10.34, 'BYN', 1),
+                          (0, 'USD', 1),
+                          (100, 'USD', 2),
+                          (0, 'BYN', 2),
+                          (300, 'BYN', 3);"
+

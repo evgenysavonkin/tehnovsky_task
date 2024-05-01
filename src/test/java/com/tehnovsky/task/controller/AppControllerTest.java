@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tehnovsky.task.model.Account;
 import com.tehnovsky.task.model.User;
 import com.tehnovsky.task.service.UserService;
-import com.tehnovsky.task.util.db_actions.DataCleaner;
-import com.tehnovsky.task.util.db_actions.DataInitializer;
+import com.tehnovsky.task.util.db_utils.DataCleaner;
+import com.tehnovsky.task.util.db_utils.DataInitializer;
 import com.tehnovsky.task.util.enums.Currency;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.*;
@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @Testcontainers
 @AutoConfigureMockMvc
-class MainControllerTest {
+class AppControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -71,14 +71,12 @@ class MainControllerTest {
     @BeforeEach
     public void initDataInDB() {
         dataCleaner.dropTablesIfExist(jdbcTemplate);
-        System.out.println("initDataInDB______________________________________________________________");
         dataInitializer.initData(jdbcTemplate);
     }
 
     @AfterEach
     public void destroyDataInDB() {
         dataCleaner.dropTablesIfExist(jdbcTemplate);
-        System.out.println("destroyDataInDB______________________________________________________________");
     }
 
     @Test

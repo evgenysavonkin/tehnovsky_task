@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-class AccountServiceTests {
+class AccountServiceTest {
 
     @Test
     void findUserAccountByCurrency_returnsUSDAccount_whenCurrencyIsUSD_test() {

@@ -7,3 +7,9 @@ databaseChangeLog:
       file: db/changelog/changeset/create-document-table.yaml
   - include:
       file: db/changelog/changeset/create-operation-table.yaml
+  - include:
+      file: db/changelog/changeset/insert-user-table-data.yaml
+  - include:
+      file: db/changelog/changeset/insert-account-table-data.yaml
+  - include:
+      file: db/changelog/changeset/insert-document-table-data.yaml

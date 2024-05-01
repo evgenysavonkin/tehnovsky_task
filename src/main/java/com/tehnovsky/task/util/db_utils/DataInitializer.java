@@ -1,4 +1,4 @@
-package com.tehnovsky.task.util.db_actions;
+package com.tehnovsky.task.util.db_utils;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;

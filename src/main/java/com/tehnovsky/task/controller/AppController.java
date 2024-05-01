@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 @Slf4j
-public class MainController {
+public class AppController {
     private final UserService userService;
     private final MoneyActionsService moneyActionsService;
 

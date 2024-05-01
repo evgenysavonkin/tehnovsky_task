@@ -1,4 +1,4 @@
-package com.tehnovsky.task.util.db_actions;
+package com.tehnovsky.task.util.db_utils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,6 @@ public class AutoDataCleaner implements ApplicationListener<ContextClosedEvent> 
 
     @Override
     public void onApplicationEvent(ContextClosedEvent event) {
-        dataCleaner.dropTablesIfExist(jdbcTemplate);
-        log.info("Data is deleted from DB successfully");
+//        dataCleaner.dropTablesIfExist(jdbcTemplate);
     }
 }

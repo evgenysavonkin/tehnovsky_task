@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-operation-data
+      author: Evgeny
+      changes:
+        - sql:
+            splitStatements: true
+            stripComments: true
+            sql: "INSERT INTO operation (operation_type, amount, currency, operation_date, user_id)
+                  VALUES ('DEPOSIT', 10.34, 'BYN', '2024-04-26 13:49:25-07', 1),
+                         ('DEPOSIT', 100, 'USD', '2024-04-26 13:49:25-07', 2),
+                         ('DEPOSIT', 300, 'BYN', '2024-04-26 14:49:25-07', 3);"
+

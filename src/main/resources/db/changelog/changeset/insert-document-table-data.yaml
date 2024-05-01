@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-document-data
+      author: Evgeny
+      changes:
+        - sql:
+            splitStatements: true
+            stripComments: true
+            sql: "INSERT INTO document (document_number, document_type, user_id)
+                  VALUES ('MP12345', 'PASSPORT', 1),
+                         ('DL12345', 'DRIVER_LICENSE', 1),
+                         ('DL54321', 'DRIVER_LICENSE', 2),
+                         ('OP12345', 'PASSPORT', 3);"
+

@@ -1,9 +1,8 @@
-package com.tehnovsky.task.util.db_actions;
+package com.tehnovsky.task.util.db_utils;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.event.EventListener;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -18,7 +17,6 @@ public class AutoDataInitializer {
 
     @EventListener(ApplicationReadyEvent.class)
     public void initData() {
-        dataInitializer.initData(jdbcTemplate);
-        log.info("Data is inserted into DB successfully");
+//        dataInitializer.initData(jdbcTemplate);
     }
 }
