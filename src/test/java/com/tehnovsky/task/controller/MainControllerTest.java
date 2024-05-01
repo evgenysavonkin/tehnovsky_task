@@ -70,12 +70,15 @@ class MainControllerTest {
 
     @BeforeEach
     public void initDataInDB() {
+        dataCleaner.dropTablesIfExist(jdbcTemplate);
+        System.out.println("initDataInDB______________________________________________________________");
         dataInitializer.initData(jdbcTemplate);
     }
 
     @AfterEach
     public void destroyDataInDB() {
         dataCleaner.dropTablesIfExist(jdbcTemplate);
+        System.out.println("destroyDataInDB______________________________________________________________");
     }
 
     @Test

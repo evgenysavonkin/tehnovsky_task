@@ -21,19 +21,22 @@ public class User {
     @Column(nullable = false)
     private String username;
 
-    /** FetchType.EAGER is only for tests.
+    /**
+     * FetchType.EAGER is only for tests.
      * <br>
      * Before launching remove this parameter, because it will cause problems with performance
-     *
      */
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Account> accounts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Document> documents = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Operation> operations = new ArrayList<>();
 
     @Override
