@@ -1,25 +1,14 @@
-package com.tehnovsky.task.util;
+package com.tehnovsky.task.util.db_actions;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.ExitCodeGenerator;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class DataCleaner implements ApplicationListener<ContextClosedEvent>, ExitCodeGenerator {
+public class DataCleaner {
 
-    private final JdbcTemplate jdbcTemplate;
-
-    @Override
-    public int getExitCode() {
-        return 0;
-    }
-
-    @Override
-    public void onApplicationEvent(ContextClosedEvent event) {
+    public void dropTablesIfExist(JdbcTemplate jdbcTemplate) {
         jdbcTemplate.execute("""
                             DROP TABLE IF EXISTS user_ cascade;
                             DROP TABLE IF EXISTS operation cascade;
